@@ -1,0 +1,462 @@
+[
+  {
+    "question": "What is the size of int in Java?",
+    "options": [
+      "8 bit",
+      "16 bit",
+      "32 bit",
+      "64 bit"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which operator is used for short-circuit AND in Java?",
+    "options": [
+      "&",
+      "&&",
+      "|",
+      "||"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which operator is used for short-circuit OR in Java?",
+    "options": [
+      "|",
+      "||",
+      "&",
+      "&&"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What will be the output of: System.out.println(10 + 20 + \"Java\");",
+    "options": [
+      "30Java",
+      "1020Java",
+      "Java30",
+      "Error"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What will be the output of: System.out.println(\"Java\" + 10 + 20);",
+    "options": [
+      "Java30",
+      "Java1020",
+      "30Java",
+      "Error"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which loop is guaranteed to execute at least once?",
+    "options": [
+      "for",
+      "while",
+      "do-while",
+      "foreach"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which keyword is used to stop a loop?",
+    "options": [
+      "exit",
+      "break",
+      "stop",
+      "return"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which keyword skips the current iteration of a loop?",
+    "options": [
+      "skip",
+      "pass",
+      "continue",
+      "break"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What will be the output of: int x = 5; System.out.println(x++);",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "Error"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "What will be the output of: int x = 5; System.out.println(++x);",
+    "options": [
+      "4",
+      "5",
+      "6",
+      "Error"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which method is used to find maximum of two numbers?",
+    "options": [
+      "Math.max()",
+      "Math.high()",
+      "Math.large()",
+      "Math.big()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which package contains Math class?",
+    "options": [
+      "java.lang",
+      "java.util",
+      "java.math",
+      "java.io"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What is the output of: Math.round(4.6)?",
+    "options": [
+      "4",
+      "5",
+      "4.6",
+      "Error"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which data type is used to store decimal values?",
+    "options": [
+      "int",
+      "char",
+      "double",
+      "boolean"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of the following is not a loop?",
+    "options": [
+      "for",
+      "while",
+      "do-while",
+      "if"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is the index of first element in an array?",
+    "options": [
+      "0",
+      "1",
+      "-1",
+      "Depends"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "How do you find the length of an array?",
+    "options": [
+      "array.size()",
+      "array.length",
+      "array.length()",
+      "size(array)"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which class is used to take input from user?",
+    "options": [
+      "Input",
+      "Scanner",
+      "Reader",
+      "Buffer"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Scanner class belongs to which package?",
+    "options": [
+      "java.lang",
+      "java.io",
+      "java.util",
+      "java.text"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which method reads an integer using Scanner?",
+    "options": [
+      "next()",
+      "nextLine()",
+      "nextInt()",
+      "readInt()"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which of these is a valid array declaration?",
+    "options": [
+      "int arr[];",
+      "int arr;",
+      "arr int[];",
+      "array int;"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which class represents a sequence of characters?",
+    "options": [
+      "Char",
+      "String",
+      "Text",
+      "Character"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Strings in Java are?",
+    "options": [
+      "Mutable",
+      "Immutable",
+      "Dynamic",
+      "Static"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which method converts string to uppercase?",
+    "options": [
+      "upper()",
+      "toUpper()",
+      "toUpperCase()",
+      "capitalize()"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which method checks string equality?",
+    "options": [
+      "==",
+      "equals()",
+      "compare()",
+      "match()"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which collection does not allow duplicate values?",
+    "options": [
+      "List",
+      "Set",
+      "ArrayList",
+      "Vector"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which collection stores key-value pairs?",
+    "options": [
+      "List",
+      "Set",
+      "Map",
+      "Queue"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which class implements Map interface?",
+    "options": [
+      "ArrayList",
+      "HashSet",
+      "HashMap",
+      "LinkedList"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which Map does not maintain insertion order?",
+    "options": [
+      "LinkedHashMap",
+      "TreeMap",
+      "HashMap",
+      "Hashtable"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which keyword is used to inherit a class?",
+    "options": [
+      "this",
+      "super",
+      "extends",
+      "implements"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which keyword is used to implement an interface?",
+    "options": [
+      "extends",
+      "inherits",
+      "implements",
+      "uses"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which access modifier has the widest scope?",
+    "options": [
+      "private",
+      "default",
+      "protected",
+      "public"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "What is the output of: System.out.println(5 > 3 && 2 > 1);",
+    "options": [
+      "true",
+      "false",
+      "Error",
+      "0"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "What is the output of: System.out.println(5 > 3 || 2 > 10);",
+    "options": [
+      "true",
+      "false",
+      "Error",
+      "0"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which exception occurs when array index is invalid?",
+    "options": [
+      "NullPointerException",
+      "ArrayIndexOutOfBoundsException",
+      "IOException",
+      "ClassNotFoundException"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which block is always executed whether exception occurs or not?",
+    "options": [
+      "try",
+      "catch",
+      "throw",
+      "finally"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which keyword is used to create object?",
+    "options": [
+      "class",
+      "new",
+      "create",
+      "object"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which method is the entry point of Java program?",
+    "options": [
+      "start()",
+      "run()",
+      "main()",
+      "init()"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "What will be the output of: for(int i=0;i<3;i++) System.out.print(i);",
+    "options": [
+      "012",
+      "123",
+      "0123",
+      "Error"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which utility class is used for sorting collections?",
+    "options": [
+      "Arrays",
+      "Collections",
+      "Utils",
+      "Sort"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which method sorts an array?",
+    "options": [
+      "Arrays.sort()",
+      "Collections.sort()",
+      "sort()",
+      "array.sort()"
+    ],
+    "answer": 0
+  },
+  {
+    "question": "Which Java feature allows method overloading?",
+    "options": [
+      "Inheritance",
+      "Encapsulation",
+      "Polymorphism",
+      "Abstraction"
+    ],
+    "answer": 2
+  },
+  {
+    "question": "Which operator is used to compare values?",
+    "options": [
+      "=",
+      "==",
+      "!=",
+      "==="
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which number series comes next: 2, 4, 8, 16, ?",
+    "options": [
+      "18",
+      "20",
+      "24",
+      "32"
+    ],
+    "answer": 3
+  },
+  {
+    "question": "Which number series comes next: 1, 4, 9, 16, ?",
+    "options": [
+      "20",
+      "25",
+      "30",
+      "36"
+    ],
+    "answer": 1
+  },
+  {
+    "question": "Which keyword is used to define constant?",
+    "options": [
+      "static",
+      "final",
+      "const",
+      "fixed"
+    ],
+    "answer": 1
+  }
+]

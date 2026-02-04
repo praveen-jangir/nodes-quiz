@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Global Leaderboard</title>
+    <link rel="stylesheet" href="/style.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="question-card">
+            <h2 style="color: var(--accent);">Top 10 Leaderboard</h2>
+
+            <% if (locals.userEntry) { %>
+                <div
+                    style="background: var(--highlight); padding: 15px; border-radius: 8px; margin-bottom: 20px; border: 1px solid var(--accent);">
+                    <h3 style="margin: 0; color: var(--success);">Your Rank: #<%= userEntry.rank %>
+                    </h3>
+                    <p style="margin: 5px 0 0 0; color: var(--text-primary);">Score: <%= userEntry.score %>
+                    </p>
+                </div>
+                <% } %>
+
+                    <div class="table-responsive">
+                        <table>
+                            <thead>
+                                <tr>
+                                    <th>Rank</th>
+                                    <th>User</th>
+                                    <th>Score</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <% if (leaderboard.length===0) { %>
+                                    <tr>
+                                        <td colspan="3">No results yet!</td>
+                                    </tr>
+                                    <% } else { %>
+                                        <% leaderboard.forEach(function(entry) { %>
+                                            <tr class="<%= entry.isCurrent ? 'current-user-row' : '' %>">
+                                                <td>#<%= entry.rank %>
+                                                </td>
+                                                <td>
+                                                    <%= entry.name %>
+                                                </td>
+                                                <td>
+                                                    <%= entry.score %>
+                                                </td>
+                                            </tr>
+                                            <% }); %>
+                                                <% } %>
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <button onclick="window.location.href='/'" style="margin-top: 30px;">Back to Home</button>
+        </div>
+    </div>
+
+</body>
+
+</html>

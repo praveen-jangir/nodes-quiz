@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Quiz</title>
+    <link rel="stylesheet" href="/style.css">
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="header">
+            <h3>Question Time: <span id="timer">60</span>s</h3>
+        </div>
+
+        <div class="question-card">
+            <h2 id="question"></h2>
+            <div id="options"></div>
+            <button onclick="next()" class="btn-next">Next</button>
+        </div>
+    </div>
+
+    <!-- Results Modal -->
+    <div id="resultModal" class="modal">
+        <div class="modal-content">
+            <h2>Quiz Completed!</h2>
+            <p class="score-display">Your Score: <span id="finalScore"></span></p>
+            <p class="rank-display">Rank: <span id="finalRank"></span></p>
+
+            <h3>Leaderboard</h3>
+            <div class="table-responsive">
+                <table id="leaderboardTable">
+                    <thead>
+                        <tr>
+                            <th>Rank</th>
+                            <th>User</th>
+                            <th>Score</th>
+                        </tr>
+                    </thead>
+                    <tbody></tbody>
+                </table>
+            </div>
+
+            <button onclick="window.location.href='/'" class="btn-restart">Play Again</button>
+            <button onclick="goToLeaderboard()" class="btn-restart" style="background: #4caf50; margin-top: 10px;">View
+                Full Leaderboard</button>
+        </div>
+    </div>
+
+    <script>
+        // Robust injection: Parse stringified JSON to avoid syntax errors if output is empty
+        // EJS will output the JSON string, or empty string if undefined.
+        // We wrap it in a string safely.
+        var questionsRaw = '<%- JSON.stringify(questions).replace(/\\/g, "\\\\").replace(/\'/g, "\\\'").replace(/"/g, "\\\"") %>';
+        var questions = [];
+        try {
+            questions = JSON.parse(questionsRaw);
+        } catch (e) {
+            console.error("Failed to parse questions", e);
+            questions = [];
+        }
+
+        const userId = "<%- locals.userId ? userId : '' %>";
+        console.log("Questions loaded:", questions.length);
+
+        let index = 0;
+        let answers = [];
+        let time = 60;
+
+        function load() {
+            if (!questions || questions.length === 0) {
+                alert("No questions available!");
+                return;
+            }
+            if (index >= questions.length) submit();
+
+            const q = questions[index];
+            if (!q) return;
+
+            document.getElementById("question").innerText = q.question;
+            document.getElementById("options").innerHTML =
+                q.options.map((o, i) =>
+                    `<label class="option-label">
+                    <input type="radio" name="opt" value="${i}"> 
+                    <span class="option-text">${o}</span>
+                </label>`
+                ).join("");
+            time = 60;
+        }
+
+        let timerId = setInterval(() => {
+            document.getElementById("timer").innerText = time--;
+            if (time < 0) next();
+        }, 1000);
+
+        function next() {
+            const sel = document.querySelector("input[name='opt']:checked");
+            answers.push(sel ? sel.value : -1);
+            index++;
+            load();
+        }
+
+        let isSubmitted = false;
+        function submit() {
+            if (isSubmitted) return;
+            isSubmitted = true;
+            clearInterval(timerId);
+
+            fetch("/submit", {
+                method: "POST",
+                headers: { "Content-Type": "application/json" },
+                body: JSON.stringify({ answers, userId })
+            }).then(r => r.json())
+                .then(data => {
+                    if (data.success) {
+                        // Redirect to the leaderboard page with the userId
+                        window.location.href = `/leaderboard?userId=${userId}`;
+                    }
+                });
+        }
+
+        function showModal(data) {
+            document.getElementById("finalScore").innerText = data.score;
+            document.getElementById("finalRank").innerText = "#" + data.rank;
+
+            const tbody = document.querySelector("#leaderboardTable tbody");
+            tbody.innerHTML = data.leaderboard.map(u => `
+            <tr class="${u.isCurrent ? 'current-user-row' : ''}">
+                <td>#${u.rank}</td>
+                <td>${u.name}</td>
+                <td>${u.score}</td>
+            </tr>
+        `).join("");
+
+            document.getElementById("resultModal").style.display = "flex";
+        }
+
+        function goToLeaderboard() {
+            window.location.href = "/leaderboard?userId=" + userId;
+        }
+
+        load();
+    </script>
+
+</body>
+
+</html>
